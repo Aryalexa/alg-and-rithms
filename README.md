@@ -1,2 +1,2 @@
-# alg-and-rithms
+# alg-and-rythms
 coding and having fun
