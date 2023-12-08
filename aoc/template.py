@@ -16,5 +16,5 @@ print(digmap)
 
 ret = []
 with open("in") as f:
-    for line in f.readlines():
+    for line in f.read().splitlines():
     	...
