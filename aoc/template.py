@@ -14,7 +14,15 @@ for i, x in enumerate(digits):
     digmap[x] = i
 print(digmap)
 
+
+# line by line
 ret = []
 with open("in") as f:
     for line in f.read().splitlines():
     	...
+
+# the entire file
+with open("in") as f:
+    lines = f.read().splitlines()
+W = len(lines[0])
+H = len(lines)
