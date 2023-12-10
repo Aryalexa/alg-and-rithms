@@ -4,7 +4,7 @@ def in_map(point):
 
 def start_connections(start_p):
     si, sj = start_p
-    conns = []
+    conns = [] # [(point, origin)]
     N = (si-1, sj)
     if in_map(N) and mapa[N[0]][N[1]] in "|7F":
         conns.append((N,'S'))
@@ -32,7 +32,7 @@ goN = (-1, 0)
 goS = (1, 0)
 goW = (0, -1)
 goE = (0, 1)
-move_pipe = { # origin: (step to add, new_origin)
+move_pipe = { # symbol: {origin: (step, new_origin)}
     '|' : {'S':(goN, 'S'), 'N':(goS, 'N')},
     '-' : {'W':(goE, 'W'), 'E':(goW, 'E')},
     '7' : {'S':(goW, 'E'), 'W':(goS,'N')},
@@ -74,7 +74,6 @@ def mark_pipes():
     #print(da, db)
     ss = start_symbol(da, db)
 
-    #if (da, db) == ("N", "S")
     pipes[start[0]][start[1]] = ss
     steps = 1
     while a!=start:
@@ -88,8 +87,8 @@ def mark_pipes():
 
 ''' IN=1, OUT=0
 F---7 -> 00000
-|...| -> 01110
-L---J -> 01110
+|...| -> 01111
+L---J -> 01111
 '''
 def count_inside_vH():
     def am_i_in(p, iamIN):
@@ -104,7 +103,7 @@ def count_inside_vH():
             p = pipes[i][j]
             iamIN = am_i_in(p, iamIN)
             if p == "0" and iamIN:
-                pipes[i][j] = "*"
+                pipes[i][j] = "*" # for visualization
                 inside+=1
 
             print(pipes[i][j], end='')
