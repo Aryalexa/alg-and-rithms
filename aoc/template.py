@@ -14,6 +14,9 @@ for i, x in enumerate(digits):
 	digmap[x] = i
 print(digmap)
 
+def print_map(m):
+	for l in m:
+		print(l)
 
 # line by line
 ret = []
@@ -24,5 +27,6 @@ with open("in") as f:
 # the entire file
 with open("in") as f:
 	lines = f.read().splitlines()
-W = len(lines[0])
-H = len(lines)
+R, C = len(lines), len(lines[0])
+
+cols = list(zip(*lines))
