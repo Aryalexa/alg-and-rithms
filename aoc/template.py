@@ -16,6 +16,8 @@ print(digmap)
 
 def print_map(m):
 	for l in m:
+		if type(l) != str:
+			l = ''.join(str(x) for x in l)
 		print(l)
 
 # line by line
