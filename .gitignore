@@ -4,5 +4,4 @@ in
 .vscode
 *.o
 *.txt
-tests_files/
 __pycache__
